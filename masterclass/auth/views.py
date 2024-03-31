@@ -19,7 +19,9 @@ def register(request):
 # test123qwerty
 # test123qwertyA
 def logout(request):
-    return auth.logout(request)
+    auth.logout(request)
+    return redirect('tutorial:full')
+    # return auth.logout(request)
 
 def profile(request):
     return render(request, 'auth/profile.html')

@@ -1,0 +1,14 @@
+{% extends 'root.html' %}
+{% block content %}
+    <h1>достпуные курсы</h1>
+
+    <div>
+        <ul>
+                {% for category in category_list %}
+                    <li>
+                {{ category.title }}
+                    </li>
+                {%endfor %}
+        </ul>
+    </div>
+{% endblock %}
