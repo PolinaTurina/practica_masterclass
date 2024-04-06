@@ -1,0 +1,11 @@
+{% extends 'root.html' %}
+
+{% block content %}
+{{ masterclass.title }}
+{{ masterclass.description }}
+{{ masterclass.author }}
+{{ masterclass.time }}
+{{ masterclass.locate }}
+{{ masterclass.price }}
+<img src="{{ masterclass.photo.url }}" style="width: 200px">
+{% endblock %}

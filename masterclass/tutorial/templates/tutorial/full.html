@@ -19,8 +19,10 @@
 
     <div>
     {% for masterclasses in masterclass %}
+        <a href="/detail/{{ masterclasses.pk }}">
         <p>{{ masterclasses.title }}</p>
         <p>{{ masterclasses.price }}</p>
+        </a>
     {% endfor %}
     </div>
 {% endblock %}
