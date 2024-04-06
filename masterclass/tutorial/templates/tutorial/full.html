@@ -4,11 +4,23 @@
 
     <div>
         <ul>
-                {% for category in category_list %}
+                <li>
+                    <a href="/">Все</a>
+                </li>
+                {% for category in category %}
                     <li>
+                    <a href="/{{ category.pk }}">
                 {{ category.title }}
+                    </a>
                     </li>
                 {%endfor %}
         </ul>
+    </div>
+
+    <div>
+    {% for masterclasses in masterclass %}
+        <p>{{ masterclasses.title }}</p>
+        <p>{{ masterclasses.price }}</p>
+    {% endfor %}
     </div>
 {% endblock %}
