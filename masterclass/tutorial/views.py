@@ -30,3 +30,16 @@ def tutorial_detail(request, pk):
     masterclass = MasterClass.objects.get(pk=pk)
     context = {'masterclass': masterclass}
     return render(request, 'tutorial/detail.html', context)
+
+
+def bron(request):
+    context = {}
+    # if request.method == 'POST':
+    #     form = TalonForm(request.POST)
+    #     if form.is_valid():
+    #         context = {'success': 1}
+    #         form = TalonForm
+    # else:
+    #     form = TalonForm()
+    # context['form2'] = form
+    return render(request,'main/main.html', context=context)

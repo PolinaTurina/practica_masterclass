@@ -11,4 +11,6 @@ urlpatterns = [
 
     path('<int:pk>/', tutorial_list, name='tutorial'),
     path('detail/<int:pk>/', tutorial_detail, name='detail'),
+
+    path('', bron, name='bron'),
 ]
