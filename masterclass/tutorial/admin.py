@@ -17,3 +17,8 @@ class LocateAdmin(admin.ModelAdmin):
 class MasterClassAdmin(admin.ModelAdmin):
     list_display = ['category', 'title', 'description', 'time', 'locate', 'price', 'author', 'photo']
     search_fields = ['category', 'locate', 'price', 'author']
+
+@admin.register(Bron)
+class BronAdmin(admin.ModelAdmin):
+    list_display = ['user_id', 'masterclass_id', 'count', 'status']
+    search_fields = ['masterclass_id', 'status',]

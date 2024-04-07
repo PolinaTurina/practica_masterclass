@@ -3,4 +3,14 @@
 {% block content %}
     <p>Мой профиль</p>
     <p>мое имя: {{ user.username }}</p>
+
+    <h1>Мои курсы:</h1>
+    {% for bron in bron %}
+        <p>мастеркласс: {{ bron.masterclass_id }}</p>
+{#        <p>статус: {{ bron.status }}</p>#}
+        <p>{{ bron.get_status_display }}</p>
+        <p>кол-во билетов: {{ bron.count }}</p>
+{#        <p>{{ bron.user_id }}</p>#}
+        <hr>
+    {% endfor %}
 {% endblock %}

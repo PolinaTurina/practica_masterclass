@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -37,3 +38,11 @@ class MasterClass(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class Bron(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    masterclass_id = models.ForeignKey(MasterClass, on_delete=models.CASCADE, verbose_name='Мастер класс')
+    count = models.PositiveSmallIntegerField(verbose_name='Количество билетов')
+    status = models.IntegerField(default=0, choices=((0, 'Оформлено'), (1, 'Принято'), (2, 'Отклонено')))

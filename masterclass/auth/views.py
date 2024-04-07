@@ -2,6 +2,7 @@ from django.contrib import auth
 from django.shortcuts import render, redirect
 
 from . forms import RegisterForm
+from tutorial.models import Bron
 
 
 def register(request):
@@ -24,4 +25,8 @@ def logout(request):
     # return auth.logout(request)
 
 def profile(request):
-    return render(request, 'auth/profile.html')
+    # bron = Bron.objects.all()
+    user_id = request.user.id
+    bron = Bron.objects.filter(user_id=user_id).distinct()
+    context = {'bron': bron}
+    return render(request, 'auth/profile.html', context)
