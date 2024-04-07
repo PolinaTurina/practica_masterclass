@@ -6,5 +6,8 @@ from .views import *
 app_name = 'tutorial'
 
 urlpatterns = [
-    path('', TutorialView.as_view(), name='full'),
+    # path('', TutorialView.as_view(), name='full'),
+    path('', tutorial_view, name='full'),
+
+    path('<int:pk>/', tutorial_list, name='tutorial')
 ]
