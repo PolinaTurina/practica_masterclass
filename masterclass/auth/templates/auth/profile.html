@@ -1,13 +1,21 @@
 {% extends 'root.html' %}
+{% load static %}
 
 {% block content %}
     <div class="div-content">
 
 
-    <p>Мой профиль</p>
-    <p>мое имя: {{ user.username }}</p>
+    <h2>Мой профиль</h2>
+    <hr>
+    <p>Мой ник: {{ user.username }}</p>
+    <p>Мое уникальное id: #{{ user.id }}</p>
+    <p>Меня зовут:{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
 
-    <h1>Мои курсы:</h1>
+    <button class="btn btn-primary" disabled>Редактировать данные</button>
+
+    <hr>
+    <h2>Мои курсы:</h2>
 
 {#    {% for bron in bron %}#}
 {#        <p>мастеркласс: {{ bron.masterclass_id }}</p>#}

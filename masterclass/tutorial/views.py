@@ -21,6 +21,12 @@ def tutorial_view(request):
     category = Category.objects.all()
     masterclass = MasterClass.objects.all()
 
+    # Подсчет количества курсов в каждой категории
+    category_with_counts = []
+    for cat in category:
+        course_count = MasterClass.objects.filter(category=cat).count()
+        category_with_counts.append((cat, course_count))
+
     form = FilterForm()
     # Обработка фильтрации
     if 'filter' in request.GET:

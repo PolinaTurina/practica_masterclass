@@ -31,3 +31,6 @@ body{
 .div-content{
     padding: 0px 50px 0px 50px;
 }
+.fw-bold a{
+    color: #8078ff;
+}

@@ -1,7 +1,8 @@
 {% extends 'root.html' %}
 {% block content %}
     <div class="div-content">
-    <h1>достпуные курсы</h1>
+    <h2>Достпуные курсы</h2>
+    <hr>
 
 
 <div class="row" style="margin-right: 0 !important;">
@@ -11,7 +12,7 @@
                    <div class="ms-2 me-auto">
                        <div class="fw-bold">
                     <a href="/">Все</a>
-                            <span class="badge bg-primary rounded-pill">14</span>
+                            <span class="badge bg-primary rounded-pill">{{ masterclass.count }}</span>
                        </div>
                    </div>
                 </li>
@@ -21,13 +22,16 @@
                         <div class="fw-bold">
                     <a href="/{{ category.pk }}">
                 {{ category.title }}
-                         <span class="badge bg-primary rounded-pill">14</span>
+
+                         <span class="badge bg-primary rounded-pill">{{Дcount }}</span>
+
                     </a>
                         </div>
                     </div>
                     </li>
                 {%endfor %}
         </ol>
+    <hr>
 
 
     <form action="." method="get">
