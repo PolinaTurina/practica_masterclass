@@ -4,11 +4,6 @@
     <h1>достпуные курсы</h1>
 
 
-
-
-
-
-
 <div class="row" style="margin-right: 0 !important;">
     <div class="col" style="max-width: fit-content;">
         <ol class="list-group list-group-numbered" style="width: max-content;">
@@ -33,48 +28,38 @@
                     </li>
                 {%endfor %}
         </ol>
+
+
+    <form action="." method="get">
+    {{form.as_p}}
+    <button type="submit">Найти</button>
+    </form>
+
+
+
+
     </div>
+
+
+
 
 
 <div class="col">
 <div class="row row-cols-1 row-cols-md-3 g-4">
-
-    {% for masterclasses in masterclass %}
-        <div class="col">
+   {% for masterclass in masterclass %}
+    <div class="col">
         <div class="card h-100">
-        <a href="/detail/{{ masterclasses.pk }}" style="text-decoration: none">
-          <div class="card-body">
-              <h4 class="card-title card-full-title">{{ masterclasses.title }}</h4>
-              <p class="card-text card-full-price">{{ masterclasses.price }} руб</p>
-          </div>
-        </a>
-
+            <a href="/detail/{{ masterclass.pk }}" style="text-decoration: none">
+                <div class="card-body">
+                    <h4 class="card-title card-full-title">{{ masterclass.title }}</h4>
+                    <p class="card-text card-full-price">{{ masterclass.price }} руб</p>
+                </div>
+            </a>
         </div>
-        </div>
-
-
-    {% endfor %}
-
+    </div>
+{% endfor %}
     </div>
 </div>
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
 </div>
 {% endblock %}
-
-<style>
-
-</style>

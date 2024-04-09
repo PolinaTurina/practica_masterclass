@@ -16,5 +16,4 @@ urlpatterns = [
     path('detail/<int:pk>/', tutorial_detail, name='detail'),
 
 
-
 ]

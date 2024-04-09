@@ -12,3 +12,11 @@ class BronForm(forms.ModelForm):
             'user_id': forms.HiddenInput(),
             'masterclass_id': forms.HiddenInput(),
         }
+
+class FilterForm(forms.Form):
+    CHOICES = (
+        ('1', 'Min'),
+        ('2', 'Max'),
+        ('3', 'Сброс'),
+    )
+    filter = forms.ChoiceField(choices=CHOICES)
