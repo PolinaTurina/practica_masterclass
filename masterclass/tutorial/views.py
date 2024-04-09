@@ -39,10 +39,26 @@ def tutorial_view(request):
 
 
 # фильтрация мастер классов по категорями на этой же главной странице
+# def tutorial_list(request, pk):
+#     category = Category.objects.all()
+#     masterclass = MasterClass.objects.filter(category__pk=pk)
+#     context = {'category': category, 'masterclass': masterclass}
+#     return render(request, 'tutorial/full.html', context)
 def tutorial_list(request, pk):
     category = Category.objects.all()
     masterclass = MasterClass.objects.filter(category__pk=pk)
-    context = {'category': category, 'masterclass': masterclass}
+    form = FilterForm()
+
+    if 'filter' in request.GET:
+        filter_option = request.GET['filter']
+        if filter_option == '1':
+            masterclass = masterclass.order_by('price')
+        elif filter_option == '2':
+            masterclass = masterclass.order_by('-price')
+        elif filter_option == '3':
+            masterclass = MasterClass.objects.filter(category__pk=pk)
+
+    context = {'category': category, 'masterclass': masterclass, 'form': form}
     return render(request, 'tutorial/full.html', context)
 
 
