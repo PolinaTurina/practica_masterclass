@@ -1,16 +1,43 @@
 {% extends 'root.html' %}
 
 {% block content %}
+    <div class="div-content">
+
+
     <p>Мой профиль</p>
     <p>мое имя: {{ user.username }}</p>
 
     <h1>Мои курсы:</h1>
-    {% for bron in bron %}
-        <p>мастеркласс: {{ bron.masterclass_id }}</p>
+
+{#    {% for bron in bron %}#}
+{#        <p>мастеркласс: {{ bron.masterclass_id }}</p>#}
 {#        <p>статус: {{ bron.status }}</p>#}
-        <p>{{ bron.get_status_display }}</p>
-        <p>кол-во билетов: {{ bron.count }}</p>
+{#        <p>{{ bron.get_status_display }}</p>#}
+{#        <p>кол-во билетов: {{ bron.count }}</p>#}
 {#        <p>{{ bron.user_id }}</p>#}
-        <hr>
+{#        <hr>#}
+{#    {% endfor %}#}
+
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название курса</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Кол-во билетов</th>
+    </tr>
+  </thead>
+          {% for bron in bron %}
+  <tbody>
+    <tr>
+      <td>{{ bron.masterclass_id }}</td>
+      <td>{{ bron.get_status_display }}</td>
+      <td>{{ bron.count }}</td>
+    </tr>
+  </tbody>
     {% endfor %}
+</table>
+
+    </div>
 {% endblock %}

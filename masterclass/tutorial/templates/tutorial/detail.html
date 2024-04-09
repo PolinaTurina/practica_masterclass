@@ -1,22 +1,48 @@
 {% extends 'root.html' %}
 
 {% block content %}
-{{ masterclass.title }}
-{{ masterclass.description }}
-{{ masterclass.author }}
-{{ masterclass.time }}
-{{ masterclass.locate }}
-{{ masterclass.price }}
-<img src="{{ masterclass.photo.url }}" style="width: 200px">
+<div class="div-content">
+
+
+
+
+    <div class="card text-center">
+  <div class="card-header">
+        Доступные курсы\{{ masterclass.category }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ masterclass.title }}</h5>
+      <img src="{{ masterclass.photo.url }}" style="width: 200px">
+    <p class="card-text">О курсе: {{ masterclass.description }}</p>
+    <p class="card-text"> {{ masterclass.price }} руб</p>
+    <p class="card-text">Курс ведёт: {{ masterclass.author }}</p>
+    <p class="card-text">Начало курса: {{ masterclass.time }}</p>
+    <p class="card-text">Место проведения: {{ masterclass.locate }}</p>
+
+    <!-- Button trigger modal -->
+
+
+
+      {% if user.is_authenticated %}
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Забронировать</button>
+
+      {% else %}
+          <button type="button" class="btn btn-primary" disabled>Забронировать</button>
+          <p>Чтобы забронировать билет на курс, вы должны быть авторизованы</p>
+      {% endif %}
+
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
 
 
 
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Забронировать
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,27 +53,24 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          ТУТ БУДЕТ ФОРМА БРОНИРОВАНИЯ
-
 
           <form method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Забронировать</button>
+
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                   <button type="submit" class="btn btn-primary">Забронировать</button>
+              </div>
           </form>
 
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-        <button type="button" class="btn btn-primary">Забронировать</button>
       </div>
     </div>
   </div>
 </div>
 
 
-
+</div>
 
 
 

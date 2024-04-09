@@ -17,6 +17,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'auth/register.html', context)
 
+
 # test123qwerty
 # test123qwertyA
 def logout(request):

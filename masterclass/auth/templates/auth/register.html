@@ -1,9 +1,14 @@
 {% extends "root.html" %}
 {%block content%}
+<div class="div-content">
 
-<form action="" method="post">
-{% csrf_token %}
-{{form.as_p}}
-<input type="submit" value="регистрация">
-</form>
+    <form action="" method="post">
+    {% csrf_token %}
+        <div class="form-group">
+            {{form.as_p}}
+            <input type="submit" class="btn btn-primary" value="регистрация">
+        </div>
+    </form>
+
+</div>
 {%endblock%}

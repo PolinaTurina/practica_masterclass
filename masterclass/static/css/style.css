@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.top{
+    background: linear-gradient(23deg, rgb(219 226 245) 0%, rgb(132 132 214 / 48%) 59%, rgba(113,168,238,1) 100%);
+    padding: 10px;
+}
+.top a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+}
+.g-4
+    {display: contents}
+
+body{
+    background: #e9eced;
+}
+.card-full-price{
+    text-align: end;
+    font-size: 22px;
+    color: #8078ff;
+    text-shadow: 1px 1px 2px #ceffdd;
+}
+.card-full-title{
+    text-align: center;
+    color: #8078ff  !important;;
+
+}
+.div-content{
+    padding: 0px 50px 0px 50px;
+}
